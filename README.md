@@ -27,14 +27,14 @@
 
 ####  Documentation
   * in your README, write documentation for you data structures
-  * your documentation should includes code block useage examples
+  * your documentation should includes code block usage examples
   * provide instructions for:
     * installing and using your data structure
     * accessing each method
     * running your tests
 
 #### Feature Tasks
-  * implament a List constructor
+  * implement a List constructor
   * implement `push()` and `pop()` on the List prototype
   * implement `forEach()` and `filter()` as pure methods on the List prototype
   * implement `map()` and `reduce()` as pure methods on the List prototype
