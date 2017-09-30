@@ -48,3 +48,24 @@ list.prototype.filterList = function(fn) {
 
   return listCopy;
 }
+
+list.prototype.mapList = function(fn) {
+
+  let listCopy = new list;
+  for(let i = 0; i < this.length; i++){
+      listCopy[i]=fn(this[i]);
+      listCopy.length++;
+    }
+    return listCopy;
+  }
+
+
+  list.prototype.reduceList = function(fn) {
+
+    let reduced ='';
+    for(let i = 0; i < this.length; i++){
+        reduced=fn(this[i]);
+
+      }
+      return reduced;
+    }
