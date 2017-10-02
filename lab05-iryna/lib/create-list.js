@@ -9,7 +9,7 @@ const list = module.exports = function(...args){
 };
 
 
-list.prototype.push = function(value){
+list.prototype.pushList = function(value){
   this[this.length] = value;
   this.length++;
  // console.log ('inside');
@@ -17,7 +17,7 @@ list.prototype.push = function(value){
 };
 
 
-list.prototype.pop = function(){
+list.prototype.popList = function(){
   let changed = this[this.length-1];
   delete this[this.length-1];
   this.length--;
@@ -26,7 +26,7 @@ list.prototype.pop = function(){
 };
 
 
-list.prototype.forEach = function(fn) {
+list.prototype.forEachList = function(fn) {
   let listCopy = Object.assign({}, this);
 
   for(let i = 0; i < listCopy.length; i++) {
