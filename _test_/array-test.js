@@ -70,8 +70,29 @@ describe('pop', function(){
       0: 0,
       1: 1,
       2:2,
-      length : 3
+      length : 3,
     };
     expect(array).toEqual(expected);
   });
 });
+
+describe('forEach', function(){
+  it('should run the callback once for every item in the array and not change the amount of items in the array', function(){
+    let array = new List();
+    let actual = 0;
+    let expected = 3;
+    array.push(1,1,1);
+    array.forEach( i => actual+=i);
+    expect(actual).toEqual(expected);
+    expect(array.length).toEqual(3);
+  });
+});
+
+describe('filter', function(){
+  it('should return a new array', function(){
+    let array = new List();
+    let actual = array.filter(null);
+    expect(actual instanceof List).toBe(true);
+  });
+});
+
