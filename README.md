@@ -46,7 +46,7 @@
     * running your tests
 
 #### Feature Tasks
-  * implament a List constructor
+  * implement a List constructor
   * implement `push()` and `pop()` on the List prototype
   * implement `forEach()` and `filter()` as pure methods on the List prototype
   * implement `map()` and `reduce()` as pure methods on the List prototype
