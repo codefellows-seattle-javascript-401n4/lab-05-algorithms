@@ -1,0 +1,30 @@
+{
+  "name": "lab-05-algorithms",
+  "version": "1.0.0",
+  "description": "functional programming practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maslovai/lab-05-algorithms.git"
+  },
+  "keywords": [
+    "array",
+    "push",
+    "pop",
+    "functional"
+  ],
+  "author": "iryna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maslovai/lab-05-algorithms/issues"
+  },
+  "homepage": "https://github.com/maslovai/lab-05-algorithms#readme",
+  "dependencies": {
+    "eslint": "^4.8.0",
+    "expect": "^21.2.1",
+    "mocha": "^3.5.3"
+  }
+}
