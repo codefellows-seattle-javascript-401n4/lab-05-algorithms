@@ -4,7 +4,8 @@
   "description": "![cf](http://i.imgur.com/7v5ASc8.png) lab 05 - List Data Structure ====",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "eslint": "eslint --fix lib/** && eslint --fix test/**"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/meganrm/lab-05-algorithms/issues"
   },
-  "homepage": "https://github.com/meganrm/lab-05-algorithms#readme"
+  "homepage": "https://github.com/meganrm/lab-05-algorithms#readme",
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "expect": "^21.2.1",
+    "mocha": "^3.5.3"
+  }
 }
