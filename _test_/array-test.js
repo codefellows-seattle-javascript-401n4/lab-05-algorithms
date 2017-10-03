@@ -14,8 +14,9 @@ describe('.push', function(){
   it('should increment the length of the array by 1 when given one argument', function(){
     let array = new List();
     array.push('poop');
-    let expected = array.length;
-    expect(expected).toEqual(1);
+    let actual = array.length;
+    let expected = 1;
+    expect(actual).toEqual(expected);
   });
 });
 
@@ -23,8 +24,9 @@ describe('push', function(){
   it('should be able to handle multiple arguments given at once and give the correct length;', function(){
     let array = new List();
     array.push('a','b','c');
-    let expected = array.length;
-    expect(expected).toEqual(3);
+    let actual = array.length;
+    let expected = 3;
+    expect(actual).toEqual(expected);
   });
 });
 
@@ -32,7 +34,44 @@ describe('push', function(){
   it('should store the arguments in order that they were given', function(){
     let array = new List();
     array.push('first', 'second', 'third');
-    let expected = array[1];
-    expect(expected).toBe('second');
+    let actual = array[1];
+    let expected = 'second';
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('pop', function(){
+  it('should decrease the length of the array by 1', function(){
+    let array = new List();
+    array.push('poop', 'poopy');
+    array.pop();
+    let actual = array.length;
+    let expected = 1;
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('pop', function(){
+  it('should return the last array item that was deleted', function(){
+    let array = new List();
+    array.push('poop', 'poopy');
+    let actual = array.pop();
+    let expected = 'poopy';
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('pop', function(){
+  it('should delete the last item in the array', function(){
+    let array = new List();
+    array.push(0,1,2,3);
+    array.pop();
+    let expected = {
+      0: 0,
+      1: 1,
+      2:2,
+      length : 3
+    };
+    expect(array).toEqual(expected);
   });
 });
