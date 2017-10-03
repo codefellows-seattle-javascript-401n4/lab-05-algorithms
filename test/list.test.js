@@ -58,19 +58,62 @@ describe('My New List', () => {
     });
   });
 
+  describe('map() implemenation', () => {
+    let list = new List();
+    list.push('foo')
+    list.push('bar')
+    let callback = (ele, index, array) => {
+      return ele + '-dragon';
+    }
+    let originalList = list;
+    let mapped = list.map(callback)
+
+    it('doesnt mutate the original list', () => {
+      expect(originalList).toEqual(list);
+    });
+
+    it('takes a callback and applies each element and returns a list of those new elements', () => {
+      expect(mapped).toEqual({"0": "foo-dragon", "1": "bar-dragon", "length": 2});
+    });
+
+    it('returns a list with the same length as the original', () => {
+      expect(mapped.length).toEqual(list.length);
+    });
+  });
+
+  describe('filter() implemenation', () => {
+    let list = new List();
+    list.push('foo')
+    list.push('bar')
+    let callback = (ele, index, array) => {
+      return ele === 'foo';
+    }
+    let filtered = list.filter(callback)
+    it('takes a callback, returns a new list with only elements that pass the callback test', () => {
+      expect(filtered).toEqual({"0": "foo", "length": 1});
+    });
+  });
+
   describe('reduce() implemenation', () => {
     let list = new List();
     list.push('foo')
     list.push('bar')
-    console.log(list.length);
-    // let callback = (acc, cur, index, array) => {
-    //   acc = acc + (cur)
-    //   return acc
-    // }
-    // let reduced = list.reduce(callback)
-    //
-    // it('takes a callback and applies it to an array', () => {
-    //   expect(reduced).toEqual();
+
+    it('can add up elements', () => {
+      let callback = (acc, cur, index, array) => {
+        return  acc + cur
+      }
+      let reduced = list.reduce(callback, 0)
+      expect(reduced).toEqual('0foobar');
+    });
+
+    // it('can replicate the functionality of map()', () => {
+    //   let callback = (acc, cur, index, array) => {
+    //     acc.push(cur)
+    //     return acc
+    //   }
+    //   let reduced = list.reduce(callback)
+    //   expect(reduced).toEqual( {"0": "foo", "1": "bar", "length": 2});
     // });
 
   });
