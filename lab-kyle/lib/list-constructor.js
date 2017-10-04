@@ -7,16 +7,19 @@ const pop = require('./pop.js');
 const push = require('./push.js');
 const reduce = require('./reduce.js');
 
-const List = module.exports = {
+const List = module.exports = function (map, forEach, filter, pop, push, reduce) {
 
-  map: map,
-  forEach: forEach,
-  filter: filter,
-  pop: pop,
-  push: push,
-  reduce: reduce,
+  this.map = map;
+  this.forEach = forEach;
+  this.filter = filter;
+  this.pop = pop;
+  this.push = push;
+  this.reduce = reduce;
 
 };
 
 let test = List.map;
 console.log(test);
+
+var testArray = new List;
+console.log(testArray.map);
