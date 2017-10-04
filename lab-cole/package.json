@@ -1,0 +1,22 @@
+{
+  "name": "lab-cole",
+  "version": "1.0.0",
+  "description": "Documentation",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^3.5.3",
+    "node-expect": "^0.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0"
+  }
+}
