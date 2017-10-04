@@ -96,3 +96,17 @@ describe('filter', function(){
   });
 });
 
+describe('filter', function(){
+  it('should return a new filtered array based on the callback', function(){
+    let array = new List();
+    array.push(1,2,3,4,5,6);
+    let actual = array.filter(num => num % 2 ===0);
+    let expected = {
+      0: 2,
+      1: 4,
+      2: 6,
+      length: 3,
+    }
+    expect(actual).toEqual(expected);
+  });
+});
