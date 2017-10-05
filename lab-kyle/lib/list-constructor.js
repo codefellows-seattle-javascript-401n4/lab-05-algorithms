@@ -53,8 +53,8 @@ List.prototype.forEach = function(callback){
 //
 // };
 
-List.prototype.reduce =function(){
-
-  
-
-};
+// List.prototype.reduce =function(){
+//
+//
+//
+// };
