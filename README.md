@@ -1,52 +1,67 @@
-![cf](http://i.imgur.com/7v5ASc8.png) lab 05 - List Data Structure
-====
+*lib/list.js*
 
-## To Submit this Assignment
-  * fork this repository
-  * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * push to your repository
-  * submit a pull request to this repository
-  * submit a link to your PR in canvas
-  * write a question and observation on canvas
+ _Constructor_
 
-## Requirements
-#### Configuration
-  <!-- list of files, configurations, tools, etc that are required -->
-  Your lab directory must include
-  * **README.md** -- with a documentation about your lab
-  * **.gitignore** -- with a robust .gitignore
-  * **.eslintrc** -- with the class .eslintrc file
-  * **.eslintignore** -- with the class .eslintignore
-  * **.package.json** -- with all dependencies and dev-dependencies
-  * **lib/** -- directory for holding your programs helper modules
-  * **test/** -- directory for holding your programs unit and integration tests
+   Construct new *List* object by invoking `new` keyword, e.g. `let myList = new List`;
+   Each *List* object contains one parameter, a *length*, which is initialized to 0.
 
-#### Testing
-  * write at least three test assertions for each method of the List Data Structure
-  * organize your tests into appropriate describe/it blocks for test output readability
 
-####  Documentation
-  * in your README, write documentation for you data structures
-  * your documentation should includes code block useage examples
-  * provide instructions for:
-    * installing and using your data structure
-    * accessing each method
-    * running your tests
+ _Methods on List Prototype_
 
-#### Feature Tasks
-  * implament a List constructor
-  * implement `push()` and `pop()` on the List prototype
-  * implement `forEach()` and `filter()` as pure methods on the List prototype
-  * implement `map()` and `reduce()` as pure methods on the List prototype
-  * in comments above or within each function, note the Big-O runtime
+   *push()*
 
-## Bonus Points:
-  * 2pts
-  * refactor the List data structor so that `push()` and `pop()` both have a constant / O(1) run time
+     Add a single key:value to the end of the List object
 
-#### Rubric:
-  * Tests: 2pts
-  * Passes linter: 1pts
-  * Completed Data Structure: 3pts
-  * Completed FP methods: 2pts
-  * Big-O notation: 2pt
+     `list.push('a');
+      list.push('b');
+      console.log(list);` // { 0: 'a', 1: 'b', length: 2}
+
+    *pop()*
+
+      Remove a single key:value from the end of the List object and return it
+
+      // Given a List myList: { 0: 'a', 1: 'b', length: 2}
+      `let newList = myList.pop();
+       console.log(newlist);` // 'b'
+      `console.log(myList)` // { 0: 'a' length: 1}
+
+    *map()*
+
+      Perform a passed in function to each property's value, then return new List
+
+      // Given a List myList: { 0: 2, 1: 4, length: 2}
+      `let newList = myList.map( a => a + 3);
+       console.log(newlist);` // { 0: 5, 1: 7, length: 2}
+      `console.log(myList)` // { 0: 2, 1: 4, length: 2}  (unchanged!)
+
+    *forEach()*
+
+      Perform a passed in function to each property's value, then return new List
+
+      // Given a List myList: { 0: 2, 1: 4, length: 2}
+      `let newList = myList.forEach( a => a * 3);
+       console.log(newlist);` // { 0: 6, 1: 12, length: 2}
+      `console.log(myList)` // { 0: 2, 1: 4, length: 2}  (unchanged!)
+
+    *filter()*
+
+      Return all values that evaluate to true based on a passed in conditional
+      Returns an array
+
+      // Given a List myList: { 0: 2, 1: 4, length: 2}
+      `let newList = myList.filter( a => a < 3); ` //Evaluate each value against a < 3
+       `console.log(newlist);` // [ 2 ]
+      `console.log(myList)` // { 0: 2, 1: 4, length: 2}  (unchanged!)
+
+    *reduce()*
+
+      Applies a function against an accumulator and each element in List to reduce it to a single value.
+
+      // Given a List myList: { 0: 2, 1: 4, length: 2}
+      `let newList = myList.reduce((a , b) => b = b + a, 0); `
+       `console.log(newlist);` // 6 (Sum of all values)
+      `console.log(myList)` // { 0: 2, 1: 4, length: 2}  (unchanged!)
+
+  _Testing_
+
+     Type 'mocha' it the console to run tests
