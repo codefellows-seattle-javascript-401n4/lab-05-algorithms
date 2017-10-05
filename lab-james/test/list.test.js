@@ -15,7 +15,7 @@ describe('List', function(){
 
 });
 
-//=======================================================================================================
+//======================================================================================================
 
 describe('List.push', function(){
 
@@ -50,7 +50,7 @@ describe('List.push', function(){
 
 });
 
-//=======================================================================================================
+//======================================================================================================
 
 describe('List.pop', function(){
 
@@ -181,7 +181,6 @@ describe('List.filter', function(){
 describe('List.map', function(){
 
   let list = new List();
-
   list.push(1);
   list.push(2);
   list.push(3);
@@ -203,6 +202,60 @@ describe('List.map', function(){
   it('does not mutate the original array', function(){
 
     expect(list[2]).toEqual(3);
+
+  });
+
+});
+
+//======================================================================================================
+
+describe('List.reduce', function(){
+
+  it('correctly adds together values in array according to callback conditions', function(){
+
+    let list = new List();
+    list.push(1);
+    list.push(2);
+    list.push(3);
+
+    let newList = list.reduce((a, b) => a + b, 10);
+
+    expect(newList).toEqual(16);
+
+  });
+
+  it('correctly flattens arrays', function(){
+
+    let list = new List();
+    list.push(['kitty', 'cat']);
+    list.push(['puppy', 'dog']);
+    list.push(['squeaky', 'mouse']);
+
+    let newList = list.reduce((a, b) => a.concat(b), []);
+
+    expect(newList).toEqual(['kitty', 'cat', 'puppy', 'dog', 'squeaky', 'mouse']);
+
+  });
+
+  it('correctly removes duplicates in arrays', function(){
+
+    let list = new List();
+    list.push('red');
+    list.push('green');
+    list.push('blue');
+    list.push('red');
+    list.push('blue');
+
+    let newList = list.reduce((acc, index) => {
+      if(!acc.includes(index)){
+        acc.push(index);
+      }
+
+      return acc;
+
+    }, []);
+
+    expect(newList).toEqual(['red', 'green', 'blue']);
 
   });
 

@@ -7,7 +7,7 @@ const List = module.exports = function(){
 };
 
 //=======================================================================================================
-
+//Big-O runtime: O(n)
 List.prototype.push = function(value){
 
   this[this.length] = value;
@@ -16,7 +16,7 @@ List.prototype.push = function(value){
 };
 
 //=======================================================================================================
-
+//Big-O runtime: O(n)
 List.prototype.pop = function(){
 
   delete this[this.length -1];
@@ -25,7 +25,7 @@ List.prototype.pop = function(){
 };
 
 //=======================================================================================================
-
+//Big-O runtime: O(n)
 List.prototype.forEach = function(callback){
 
   for(var i = 0; i < this.length; i++){
@@ -35,7 +35,7 @@ List.prototype.forEach = function(callback){
 };
 
 //=======================================================================================================
-
+//Big-O runtime: O(n)
 List.prototype.filter = function(callback){
 
   let newList = new List();
@@ -51,7 +51,7 @@ List.prototype.filter = function(callback){
 };
 
 //=======================================================================================================
-
+//Big-O runtime: O(n)
 List.prototype.map = function(callback){
 
   let newList = new List();
@@ -65,8 +65,24 @@ List.prototype.map = function(callback){
 };
 
 //=======================================================================================================
+//Big-O runtime: O(n)
+List.prototype.reduce = function(callback, initialValue){
 
-List.prototype.reduce = function(callback){
+  let acc = initialValue;
 
+  if(initialValue !== undefined){
+    for(var i = 0; i < this.length; i++){
+      acc = callback(acc, this[i]);
+    }
+  }
+
+  if(initialValue === undefined){
+    acc = this[0];
+    for(var j = 1; j < this.length; j++){
+      acc = callback(acc, this[j]);
+    }
+  }
+
+  return acc;
 
 };
