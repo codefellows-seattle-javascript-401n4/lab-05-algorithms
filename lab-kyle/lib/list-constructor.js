@@ -1,25 +1,48 @@
 'use strict';
 
-const filter = require('./filter.js');
-const forEach = require('./for-each.js');
-const map = require('./map.js');
-const pop = require('./pop.js');
-const push = require('./push.js');
-const reduce = require('./reduce.js');
+const List = module.exports = function(){
+  this.length = 0;
+};
 
-const List = module.exports = function (map, forEach, filter, pop, push, reduce) {
+List.prototype.push = function(...args){
 
-  this.map = map;
-  this.forEach = forEach;
-  this.filter = filter;
-  this.pop = pop;
-  this.push = push;
-  this.reduce = reduce;
+  args.forEach(function(arg){
+    this[this.length] = arg;
+    this.length++;
+
+  });
+};
+
+List.prototype.map = function(callback){
+
+  let result = [];
+
+  for (let i = 0; i < this.length; i++) {
+    result.push(callback(this[i]));
+  }
+
+  return result;
 
 };
 
-let test = List.map;
-console.log(test);
+List.prototype.pop = function(){
 
-var testArray = new List;
-console.log(testArray.map);
+  if(this.length === 0){
+    return undefined;
+  } else {
+
+    let popped = this[this.length - 1];
+    delete this[this.length -1];
+
+    return popped;
+
+  }
+};
+
+List.prototype.forEach = function(callback){
+
+  for (let i = 0; i < this.length; i++){
+    callback(this[i], i, this);
+  }
+
+};
