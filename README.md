@@ -1,29 +1,4 @@
-![cf](http://i.imgur.com/7v5ASc8.png) lab 05 - List Data Structure
-====
 
-## To Submit this Assignment
-  * fork this repository
-  * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * push to your repository
-  * submit a pull request to this repository
-  * submit a link to your PR in canvas
-  * write a question and observation on canvas
-
-## Requirements
-#### Configuration
-  <!-- list of files, configurations, tools, etc that are required -->
-  Your lab directory must include
-  * **README.md** -- with a documentation about your lab
-  * **.gitignore** -- with a robust .gitignore
-  * **.eslintrc** -- with the class .eslintrc file
-  * **.eslintignore** -- with the class .eslintignore
-  * **.package.json** -- with all dependencies and dev-dependencies
-  * **lib/** -- directory for holding your programs helper modules
-  * **test/** -- directory for holding your programs unit and integration tests
-
-#### Testing
-  * write at least three test assertions for each method of the List Data Structure
-  * organize your tests into appropriate describe/it blocks for test output readability
 
 ####  Documentation
   * in your README, write documentation for you data structures
@@ -33,20 +8,13 @@
     * accessing each method
     * running your tests
 
-#### Feature Tasks
-  * implament a List constructor
-  * implement `push()` and `pop()` on the List prototype
-  * implement `forEach()` and `filter()` as pure methods on the List prototype
-  * implement `map()` and `reduce()` as pure methods on the List prototype
-  * in comments above or within each function, note the Big-O runtime
+### Documentation
+  * let blah = new List ();   to create a new empty array
+  * List.push(...args) takes in multiple arguments and will add those items to the end of the array and increase the length accordingly
+  * List.pop() takes in no arguments, and will return to you the last item in the array and decrease length by 1
+  * List.forEach(callback) takes a callback function as the argument and will run that callback once for every item in the array
+  * List.filter(callback) takes a callback and if the array items pass the criteria in the callback it will then be pushed into the new array that is returned to you
+  * List.map(callback) takes a callback and will run that callback on each array item and then return to you a completely new mutated array
+  * List.reduce(callback, initVal) will combine all array items based on the callback and the given initial value
 
-## Bonus Points:
-  * 2pts
-  * refactor the List data structor so that `push()` and `pop()` both have a constant / O(1) run time
-
-#### Rubric:
-  * Tests: 2pts
-  * Passes linter: 1pts
-  * Completed Data Structure: 3pts
-  * Completed FP methods: 2pts
-  * Big-O notation: 2pt
+  

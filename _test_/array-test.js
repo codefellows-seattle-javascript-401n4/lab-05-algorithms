@@ -110,3 +110,20 @@ describe('filter', function(){
     expect(actual).toEqual(expected);
   });
 });
+
+
+
+describe('map', function(){
+  it('should mutate every item in the array based on the callback', function(){
+    let array = new List();
+    array.push(1,2,3);
+    let actual = array.map(num => num * 2);
+    let expected = {
+      0: 2,
+      1: 4,
+      2: 6,
+      length: 3,
+    };
+    expect(actual).toEqual(expected);
+  });
+});
