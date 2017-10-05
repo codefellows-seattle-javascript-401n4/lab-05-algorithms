@@ -46,3 +46,15 @@ List.prototype.forEach = function(callback){
   }
 
 };
+
+// List.prototype.filter = function(callback, ...args){
+//
+//
+//
+// };
+
+List.prototype.reduce =function(){
+
+  
+
+};
