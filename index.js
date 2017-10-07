@@ -13,21 +13,21 @@ List.prototype.push = function(newItem) {
 };
 
 
-List.pop = function() {
 //.pop removes the last element from the array. The returned value is the removed element from the array; returns 'undefined' if the array is empty.
+List.prototype.pop = function() {
   return this.values.pop();
 };
 
 
 //pure functions only care about their own inputs and spit out outputs.  They don't affect other things.
-List.forEach = function(callback) {
+List.prototype.forEach = function(callback) {
   for(let i = 0; i < this.values.length; i++){
     callback(this.values[i]);
   }
 };
 
 
-List.filter = function(callback) {
+List.prototype.filter = function(callback) {
   let filtered = [];
 
   for(let i = 0; i < this.values.length; i++){
@@ -40,7 +40,7 @@ List.filter = function(callback) {
 };
 
 
-List.map = function(callback) {
+List.prototype.map = function(callback) {
   let mapped = [];
   for(let i = 0; i < this.values.length; i++){
     let modifiedElement = callback(this.values[i]);
@@ -51,7 +51,7 @@ List.map = function(callback) {
 };
 
 
-List.reduce = function(callback) {
+List.prototype.reduce = function(callback) {
   let accumulator = this.values[0];
 
   //i = index
