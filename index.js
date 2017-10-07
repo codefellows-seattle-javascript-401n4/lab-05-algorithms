@@ -1,16 +1,15 @@
 'use strict';
 
-function List () {
+let List = module.exports = exports = function () {
+
   //values are mutable data
   //this = this instance
   this.values = [];
-}
+  console.log(`this.values ${this.values}`);
+};
 
-//create an instance of List
-//let newList = new List();
-
-List.push = function(newItem) {
-  this.values.push(newItem);
+List.prototype.push = function(newItem) {
+  return this.values.push(newItem);
 };
 
 
@@ -20,7 +19,7 @@ List.pop = function() {
 };
 
 
-//pure functions only cares about their own inputs and spit out outputs.  They don't affect other things.
+//pure functions only care about their own inputs and spit out outputs.  They don't affect other things.
 List.forEach = function(callback) {
   for(let i = 0; i < this.values.length; i++){
     callback(this.values[i]);
