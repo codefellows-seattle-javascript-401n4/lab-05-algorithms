@@ -62,3 +62,16 @@ describe('List.forEach', function() {
     expect(resultsUppercased).toEqual(['ROSES', 'LILIES']);
   });
 });
+
+describe('List.filter', function() {
+  it('should return the filtered array, containing the element(s) that passed the test', function() {
+    let newList = new List();
+    newList.push('roses');
+    newList.push('lilies');
+    console.log(`after pushing, the array should contain roses, lilies. It indeed contains: ${newList.values}`);
+    let result = newList.filter(item => item.length < 6);
+    console.log(`result : `, result);
+    expect(result).toContain('roses');
+    expect(result).toHaveLength(1);
+  });
+});
