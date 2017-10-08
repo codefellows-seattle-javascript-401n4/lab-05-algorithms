@@ -53,7 +53,6 @@ describe('List.forEach', function() {
     let newList = new List();
     newList.push('roses');
     newList.push('lilies');
-    console.log(`after pushing, the array should contain roses, lilies. It indeed contains: ${newList.values}`);
     let resultsUppercased = [];
     newList.forEach((item) => {
       let uppercased = item.toUpperCase();
@@ -68,10 +67,31 @@ describe('List.filter', function() {
     let newList = new List();
     newList.push('roses');
     newList.push('lilies');
-    console.log(`after pushing, the array should contain roses, lilies. It indeed contains: ${newList.values}`);
     let result = newList.filter(item => item.length < 6);
     console.log(`result : `, result);
     expect(result).toContain('roses');
     expect(result).toHaveLength(1);
+  });
+});
+
+describe('List.map', function() {
+  it('should return the mapped array that contains all capitalized items', function() {
+    let newList = new List();
+    newList.push('roses');
+    newList.push('lilies');
+    let result = newList.map(item => item.toUpperCase());
+    expect(result).toEqual(['ROSES', 'LILIES']);
+  });
+});
+
+describe('List.reduce', function() {
+  it('should return a new array, containing only one item', function() {
+    //let newList = new List();
+    //newList.push('roses');
+    //newList.push('lilies');
+    let newList = [8, 10];
+    let result = newList.reduce((accumulator, currentValue) => accumulator + currentValue);
+    console.log(`result :`, result);
+    expect(result).toEqual(18);
   });
 });
