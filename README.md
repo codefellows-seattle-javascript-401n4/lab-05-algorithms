@@ -1,5 +1,17 @@
 ![cf](http://i.imgur.com/7v5ASc8.png) lab 05 - List Data Structure
 ====
+# David's lab solutions:
+
+* 1. https://codepen.io/Boucher/pen/gGxpgd
+* 2. https://codepen.io/Boucher/pen/qPXdVP
+* 3. https://codepen.io/Boucher/pen/bordYy
+* 4. https://codepen.io/Boucher/pen/dVzoJd
+* 5. https://codepen.io/Boucher/pen/QqMbrW
+* 6. https://codepen.io/Boucher/pen/YrxXLv
+* 7. https://codepen.io/Boucher/pen/wrqajb
+* 8. https://codepen.io/Boucher/pen/eGENKB
+
+
 
 ## To Submit this Assignment
   * fork this repository
@@ -34,7 +46,7 @@
     * running your tests
 
 #### Feature Tasks
-  * implament a List constructor
+  * implement a List constructor
   * implement `push()` and `pop()` on the List prototype
   * implement `forEach()` and `filter()` as pure methods on the List prototype
   * implement `map()` and `reduce()` as pure methods on the List prototype
