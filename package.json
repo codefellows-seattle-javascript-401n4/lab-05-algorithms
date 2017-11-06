@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/namgungssi/lab-05-algorithms/issues"
   },
-  "homepage": "https://github.com/namgungssi/lab-05-algorithms#readme"
+  "homepage": "https://github.com/namgungssi/lab-05-algorithms#readme",
+  "directories": {
+    "test": "test"
+  }
 }
