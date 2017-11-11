@@ -1,0 +1,25 @@
+{
+  "name": "lab5",
+  "version": "1.0.0",
+  "description": "lab05",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "eslint": "eslint --fix **/lib && eslint --fix index.js"
+  },
+  "author": "joel.epstein2@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "expect": "^21.1.0",
+    "mocha": "^3.5.3"
+  },
+  "dependencies": {
+    "expect": "^21.2.1",
+    "mocha": "^3.5.3"
+  }
+}
