@@ -2,7 +2,7 @@
 
 const expect = require('expect');
 const List = require('../lib/app.js');
-var testArray = new List();
+var testArray = new List(1);
 
 let tests = [
   {
@@ -10,7 +10,7 @@ let tests = [
     should: 'create an array',
     expected: 1,
     testCode: function () {
-      let testArray = new List();
+      let testArray = new List(1);
     },
     actual: testArray.length,
   },
@@ -88,4 +88,4 @@ function mochaTest (test){
   });
 }
 
-tests.forEach(mochaTest);
+tests.forEach(test => mochaTest(test));
