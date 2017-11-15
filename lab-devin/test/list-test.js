@@ -26,7 +26,7 @@ describe('List method tests', () => {
       res = res.pop();
 
       expect(res).toEqual('go');
-      expect(res.length).toEqual(1);
+      expect(res.length).toEqual(2);
     });
   });
 
