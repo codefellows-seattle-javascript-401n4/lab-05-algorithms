@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('expect');
-const List = require('./list.js');
+const List = require('../list.js');
 
 describe('List method tests', () => {
 
@@ -30,5 +30,16 @@ describe('List method tests', () => {
     });
   });
 
-  
+  describe('testing map', () => {
+
+    it('should return a new modified array leaving original unchanged', () => {
+      let orig = new List;
+      orig.push('I am ');
+
+      let res = orig.map(i => i + 'happy!');
+
+      expect(res[0]).toEqual('I am happy!');
+      expect(orig[0]).toEqual('I am ');
+    });
+  });
 });
