@@ -1,8 +1,10 @@
 'use strict';
 
 
+
 const List = require('../lib/list.js');
 const expect = require('expect');
+
 
 
 describe('Push', function() {
@@ -32,8 +34,9 @@ describe('Push', function() {
     done();
 
   });
-
 });
+
+
 
 describe('Pop', function() {
 
@@ -64,8 +67,9 @@ describe('Pop', function() {
     done();
 
   });
-
 });
+
+
 
 describe('Map', function() {
 
@@ -97,41 +101,9 @@ describe('Map', function() {
     done();
 
   });
-
 });
 
-  describe('forEach', function() {
 
-    let myList = new List;
-    let newList;
-
-    it('should return error if function argument is undefined', function(done){
-
-      expect(myList.forEach()).toBe(undefined);
-      done();
-
-    });
-
-    it('should add 5 to the value of every property in List', function(done){
-
-      myList.push(2);
-      myList.push(4);
-      newList = myList.forEach( a => a + 5 );
-      let expected = { 0: 5, 1: 7, length: 2 };
-      expect(newList).toEqual(expected);
-      done();
-
-    });
-
-    it('should have the correct length', function(done){
-
-      let expected = 2;
-      expect(newList.length).toBe(expected);
-      done();
-
-    });
-
-});
 
 describe('Reduce', function() {
 
@@ -163,8 +135,9 @@ describe('Reduce', function() {
     done();
 
   });
-
 });
+
+
 
 describe('Filter', function() {
 
@@ -198,5 +171,38 @@ describe('Filter', function() {
     done();
 
   });
+});
 
+
+
+describe('forEach', function() {
+
+  let myList = new List;
+  let newList;
+
+  it('should return error if function argument is undefined', function(done){
+
+    expect(myList.forEach()).toBe(undefined);
+    done();
+
+  });
+
+  it('should add 5 to the value of every property in List', function(done){
+
+    myList.push(2);
+    myList.push(4);
+    newList = myList.forEach( a => a + 5 );
+    let expected = { 0: 7, 1: 9, length: 2 };
+    expect(newList).toEqual(expected);
+    done();
+
+  });
+
+  it('should have the correct length', function(done){
+
+    let expected = 2;
+    expect(newList.length).toBe(expected);
+    done();
+
+  });
 });
