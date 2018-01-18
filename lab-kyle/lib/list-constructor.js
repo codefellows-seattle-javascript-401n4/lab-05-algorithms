@@ -13,7 +13,7 @@ List.prototype.push = function(args){
 
 List.prototype.map = function(callback){
 
-  let result = [];
+  let result = new List();
 
   for (let i = 0; i < this.length; i++) {
     result.push(callback(this[i]));

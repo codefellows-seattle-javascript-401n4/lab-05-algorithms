@@ -24,7 +24,9 @@ describe('List prototypes', function() {
 
     let arrayTwo = array.map((num) => num + 1);
 
-    expect(arrayTwo).toEqual([2,2]);
+    expect(arrayTwo[0]).toEqual(2);
+    expect(arrayTwo[1]).toEqual(2);
+
   });
 
   it('should POP off the last item', function(){
