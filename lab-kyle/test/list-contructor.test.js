@@ -49,4 +49,27 @@ describe('List prototypes', function() {
     expect(array[1]).toEqual(3);
   });
 
+  it('should FILTER correctly based on callback', function(){
+    let array = new List();
+    array.push(1);
+    array.push(2);
+    array.push(3);
+
+    let newArray = array.filter((num) => num === 1);
+
+    expect(newArray.length).toEqual(1);
+  });
+
+  it('should REDUCE array to one value', function(){
+    let array = new List();
+    array.push(1);
+    array.push(2);
+    array.push(3);
+
+    let newArray = array.reduce((num) => {
+      return num + num;
+    });
+    expect(newArray).toEqual(6);
+  });
+
 });

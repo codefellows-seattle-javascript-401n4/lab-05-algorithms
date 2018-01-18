@@ -42,13 +42,23 @@ List.prototype.forEach = function(callback){
 };
 
 List.prototype.filter = function(callback){
+  let newArray = new List();
 
-
+  for(let i = 0; i <= this.length; i++){
+    if(callback(this[i], i, this)){
+      newArray.push(this[i]);
+    }
+    return newArray;
+  }
 
 };
 
-List.prototype.reduce =function(){
+List.prototype.reduce =function(callback, initialValue){
+  let acc = initialValue;
 
-
+  for(var i = 0; i < this.length; i++){
+    acc = callback(this[i]);
+  }
+  return acc;
 
 };
