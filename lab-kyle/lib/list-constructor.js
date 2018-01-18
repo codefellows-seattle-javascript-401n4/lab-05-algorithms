@@ -4,13 +4,11 @@ const List = module.exports = function(){
   this.length = 0;
 };
 
-List.prototype.push = function(...args){
+List.prototype.push = function(args){
 
-  args.forEach(function(arg){
-    this[this.length] = arg;
-    this.length++;
+  this[this.length] = args;
+  this.length++;
 
-  });
 };
 
 List.prototype.map = function(callback){
@@ -28,33 +26,29 @@ List.prototype.map = function(callback){
 List.prototype.pop = function(){
 
   if(this.length === 0){
-    return undefined;
+    return 'nothing to pop';
   } else {
-
-    let popped = this[this.length - 1];
     delete this[this.length -1];
-
-    return popped;
-
+    this.length--;
   }
 };
 
 List.prototype.forEach = function(callback){
 
   for (let i = 0; i < this.length; i++){
-    callback(this[i], i, this);
+    this[i] = callback(this[i]);
   }
 
 };
 
-// List.prototype.filter = function(callback, ...args){
-//
-//
-//
-// };
+List.prototype.filter = function(callback){
 
-// List.prototype.reduce =function(){
-//
-//
-//
-// };
+
+
+};
+
+List.prototype.reduce =function(){
+
+
+
+};
