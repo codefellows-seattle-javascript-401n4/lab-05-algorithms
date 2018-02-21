@@ -1,91 +1,121 @@
 'use strict';
 
 const expect = require('expect');
-const List = require('../lib/app.js');
-var testArray = new List(1);
+const List = require('./../lib/app.js');
 
-let tests = [
-  {
-    description: 'List function',
-    should: 'create an array',
-    expected: 1,
-    testCode: function () {
-      let testArray = new List(1);
-    },
-    actual: testArray.length,
-  },
-  {
-    description: '.push',
-    should: 'increment array length by 1.',
-    expected: 2,
-    actual: testArray.length,
-    testCode: ()=>  {
-      let testArray = new List();
-      testArray.pusher(0);
-    },
-  },
-  {
-    description: '.push',
-    should: 'make an array with array length equal to it\'s passed arguments.',
-    expected: 3,
-    actual: testArray.length,
-    testCode: ()=>  {
-      let testArray = new List();
-      testArray.pusher('boil', 'toil', 'trouble')
-    }
-  },
-  {
-    description: '.push',
-    should: 'array\'s arguments are in the right order.',
-    expected: 'doom',
-    actual: testArray[3],
-    testCode: ()=> {
-      let testArray = new List();
-      testArray.pusher('lizards', 'gizzards', 'frogs', 'doom')
-    }
-  },
-  {
-    description: '.pop',
-    should: 'decrease array length by one.',
-    expected: 3,
-    actual: testArray.length,
-    testCode: ()=>{
-      let testArray = new List();
-      testArray.pusher('bog', 'blood', 'ocean', 'potion');
-      testArray.popper();
-    }
-  },
-  {
-    description: '.pop',
-    should: 'return the highest index of the array.',
-    expected: 'potion',
-    testCode: ()=>{
-      let testArray = new List();
-      testArray.pusher('bog', 'blood', 'ocean', 'potion');
-      testArray.popper();
-    },
-    actual: testArray.popper(),
-  },
-  {
-    description: '.pop',
-    should: 'removes the last index from the array.',
-    expected: ['bog', 'blood', 'ocean'],
-    actual: testArray,
-    testCode: ()=>{
-      let testArray = new List();
-      testArray.pusher('bog', 'blood', 'ocean', 'potion'),
-      testArray.popper();
-    }
-  },
-]
-
-function mochaTest (test){
-  describe(test.description, function(){
-    it(test.should, function(){
-      test.testCode();
-      expect(test.expected).toEqual(test.actual);
-    });
+describe('constructor function', ()=>{
+  it('should return an empty array object', ()=>{
+    let array = new List();
+    expect(array.length).toEqual(0);
   });
-}
+});
 
-tests.forEach(test => mochaTest(test));
+describe('drive', ()=>{
+  it('increases the length of the array', ()=>{
+    let array = new List();
+    array.drive('boil', 'cauldron');
+    let expected = 2;
+    let actual = array.length;
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('drive', ()=>{
+  it('pushed 3 args', ()=>{
+    let array = new List();
+    array.drive('boil','roil','trouble');
+    let expected = 3;
+    let actual = array.length;
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('drive', ()=>{
+  it('stores driven strings', ()=>{
+    let array = new List();
+    array.drive('boil', 'toil', 'trouble');
+    let expected = 'trouble';
+    let actual = array[3];
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('burst', ()=>{
+  it('decreses array length', ()=>{
+    let array = new List();
+    array.drive('boil', 'toil', 'trouble');
+    array.burst();
+    let expected = 2;
+    let actual = array.length;
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('burst', ()=>{
+  it('returns the array item to be deleted', ()=>{
+    let array = new List();
+    array.drive('toil', 'trouble');
+    let expected = 'trouble';
+    let actual = array.burst();
+    expect(actual).toBe(expected);
+  });
+});
+
+describe('burst', ()=>{
+  it('should delete the last thing in the array', ()=>{
+    let array = new List();
+    array.drive(0,1,2,3);
+    array.burst();
+    let expected = {
+      0: 0,
+      1: 1,
+      2:2,
+      length : 3,
+    };
+    expect(array).toEqual(expected);
+  });
+});
+
+describe('respectively', ()=>{
+  it('applies the callback to each thing in the array', ()=>{
+    let array = new List();
+    let expected = 3;
+    let actual = 0;
+    array.drive(1,1,1);
+    array.respectively( num => actual+=num);
+    expect(actual).toEqual(expected);
+    expect(array.length).toEqual(3);
+  });
+});
+
+describe('filter', ()=>{
+  it('filters out odd numbers', ()=>{
+    let array = new List();
+    array.drive(1,2,3,4,5,6);
+    let actual = array.filter(num => num % 2 ===0);
+    let expected = {
+      0: 2,
+      1: 4,
+      2: 6,
+      length: 3,
+    }
+    expect(actual).toEqual(expected);
+  });
+});
+
+
+
+describe('cartograph', ()=>{
+  it('changes original array with callback', ()=>{
+    let array = new List();
+    array.drive(1,2,3);
+    let actual = array.cartograph(num => num * 2);
+    let expected = {
+      0: 2,
+      1: 4,
+      2: 6,
+      length: 3,
+    };
+    expect(actual).toEqual(expected);
+  });
+});

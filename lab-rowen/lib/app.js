@@ -3,7 +3,7 @@
 const List = module.exports = function(...args) {
   this.length = 0;
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     this[this.length] = arg;
     this.length++;
   });
@@ -14,45 +14,40 @@ const List = module.exports = function(...args) {
 let isFunction = (cb) => {
   let retVal = '';
   let err = new Error('Error: cb is not type of function');
-  typeOf(cb) === 'function' ? retVal = 'cb is a function' : retVal = err;
+  typeof cb === 'function' ? retVal = 'cb is a function' : retVal = err;
   return retVal;
 }
 
-//push
-List.prototype.drive = function(...args){
-  args.forEach(arg => {
+// //push
+List.prototype.drive = (...args) => {
+  args.forEach((arg) => {
     this[this.length] = arg;
     this.length++;
   });
 };
 
 //pop
-List.prototype.burst = function(){
+List.prototype.burst = () => {
+  let retval = '';
   if (this.length){
+    retVal = this[this.length];
     this.length--;
-    let retVal = this[this.length];
-    this[this.length] = null;
   }else {
-    retval = 'error: list is empty';
-  }
+    retval = new Error('error: list is empty.'); }
   return retval;
 }
 
 //forEach
 List.prototype.respectively = (cb) => {
   isFunction(cb);
-  for (var i = 0; i < this.length; i++) {
-    this[i] = cb(this[i]);
-  }
+  for (var i = 0; i < this.length; i++) this[i] = cb(this[i]);
 }
 
 //map
 List.prototype.cartograph = (cb) => {
   isFunction(cb);
   let retVal = [];
-  for (var i = 0; i < this.length; i++) {
-    retval[i] = cb(this[i])
-  }
+  for (var i = 0; i < this.length; i++) retval[i] = cb(this[i]);
   return retVal;
 }
 
@@ -62,9 +57,7 @@ List.prototype.cartograph = (cb) => {
 List.prototype.simplify = (cb) => {
   isFunction(cb);
   let retVal = '';
-  for (var i = 0; i < this.length; i++) {
-    cb(retVal, this[i]);
-  }
+  for (var i = 0; i < this.length; i++) cb(retVal, this[i]);
   return retVal;
 }
 
@@ -75,9 +68,6 @@ List.prototype.simplify = (cb) => {
 List.prototype.sift = (cb) => {
   isFunction(cb);
   let retVal = [];
-  for (var i = 0; i < this.length; i++) {
-    if(cb(this[i])){
-      retVal[i] = this[i];
-  }
+  for (var i = 0; i < this.length; i++) if(cb(this[i])) retVal[i] = this[i];
   return retVal;
 }
