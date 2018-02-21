@@ -1,0 +1,15 @@
+{
+  "name": "lab-rowen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "expect": "^21.2.1"
+  }
+}
